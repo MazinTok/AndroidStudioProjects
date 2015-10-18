@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Working Logs</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_view_month">ViewMonthActivity</string>
+    <string name="title_activity_shaw_month2">View Month</string>
+
+<!--Firest view-->
+    <string name="CheckInTime"> Check in Time:</string>
+    <string name="CheckOutTime">ShawMonth2</string>
+
+    <!--Second view-->
+    <string name="DateTxtView">Date</string>
+    <string name="TimeInTxtView">Time In</string>
+    <string name="TimeOutTxtView">Time Out</string>
+
+
+</resources>

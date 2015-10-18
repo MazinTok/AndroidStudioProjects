@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">سجل ساعات العمل</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">اعدادات</string>
+    <string name="title_activity_view_month">ViewMonthActivity</string>
+    <string name="title_activity_shaw_month2"> عرض الشهر</string>
+
+<!--Firest view-->
+    <string name="CheckInTime">Check in: </string>
+    <string name="CheckOutTime">Check OUT: </string>
+
+    <!--Second view-->
+    <string name="DateTxtView">التاريخ</string>
+    <string name="TimeInTxtView">دخول</string>
+    <string name="TimeOutTxtView">خروج</string>
+
+
+</resources>
