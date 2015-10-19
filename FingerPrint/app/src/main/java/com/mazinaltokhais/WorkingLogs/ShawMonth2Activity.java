@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.mazinaltokhais.WorkingLogs.MazinListView.CustomListAdapter;
 
@@ -18,27 +21,73 @@ public class ShawMonth2Activity extends ActionBarActivity {
     DatabaseHandler db;
     List<FPlogsResult> NewsResList;
     ListView listview;
+    TextView MonthTxtView;
+    ImageButton PrevButton;
+    ImageButton NextButton;
+    int AddNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shaw_month2);
 
         listview = (ListView) findViewById(R.id.listView);
+        MonthTxtView = (TextView) findViewById(R.id.textView4);
         NewsResList = new ArrayList<FPlogsResult>();
-        initializeView();
+        AddNumber = 0;
+
+        initializeView(AddNumber);
+
+        PrevButton = (ImageButton) findViewById(R.id.PrevImageB);
+        NextButton = (ImageButton) findViewById(R.id.NextImageB);
+
+        PrevButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                AddNumber--;
+                initializeView(AddNumber);
+            }
+        });
+
+        NextButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                AddNumber++;
+                initializeView(AddNumber);
+            }
+        });
 
     }
 
-    public void initializeView() {
+    public void initializeView(int addNumber) {
         db = new DatabaseHandler(this);
         String log3 = "";
         Calendar calendar  = Calendar.getInstance();
-        int month = calendar.get(Calendar.MONTH)+1;
+        int month = calendar.get(Calendar.MONTH)+1 + addNumber;
+
+
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int year = calendar.get(Calendar.YEAR);
 
+        if (month == 0)
+        {
+            month = 12;
+        }
+        else if (month/12 > 1)
+        {
+            year++;
 
+        }else if(month/12 < 0) {
+            year--;
+        }
 
+        month = month % 12;
+
+        // String monthstr = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
+        MonthTxtView.setText(getMonthName(month) + "/" + String.valueOf(year));
+
+//calendar.getn
         for (int i = 1 ; i <30 ; i++)
         {
             List<FPlogs> CheckinLogsByDay = (List<FPlogs>) db.getFPlogsByDateAndtype(String.valueOf(i), String.valueOf(month), "0");
@@ -141,5 +190,46 @@ public class ShawMonth2Activity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public static String getMonthName(int month){
+        switch(month){
+            case 1:
+                return "Jan";
+
+            case 2:
+                return "Feb";
+
+            case 3:
+                return "Mar";
+
+            case 4:
+                return "Apr";
+
+            case 5:
+                return "May";
+
+            case 6:
+                return "Jun";
+
+            case 7:
+                return "Jul";
+
+            case 8:
+                return "Aug";
+
+            case 9:
+                return "Sep";
+
+            case 10:
+                return "Oct";
+
+            case 11:
+                return "Nov";
+
+            case 12:
+                return "Dec";
+        }
+
+        return "";
     }
 }

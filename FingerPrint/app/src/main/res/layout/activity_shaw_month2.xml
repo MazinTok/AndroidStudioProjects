@@ -4,6 +4,40 @@
 
     tools:context="com.mazinaltokhais.WorkingLogs.ShawMonth2Activity">
 
+    <ImageButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/PrevImageB"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp"
+
+        android:background="@drawable/previce_btn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView4"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="3dp" />
+
+    <ImageButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/NextImageB"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/next_btn" />
+
     <TextView
         android:layout_width="85dp"
         android:layout_height="wrap_content"
@@ -13,9 +47,10 @@
         android:layout_alignParentBottom="false"
 
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentTop="false"
         android:gravity="center"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/PrevImageB" />
 
     <TextView
         android:layout_width="75dp"
@@ -25,11 +60,12 @@
         android:id="@+id/textView2"
         android:layout_alignParentBottom="false"
         android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentTop="false"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:background="#ff5efaa1"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/textView4" />
 
     <TextView
         android:layout_width="75dp"
@@ -39,11 +75,12 @@
         android:id="@+id/textView3"
         android:layout_alignParentBottom="false"
         android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentTop="false"
         android:layout_alignParentRight="true"
         android:gravity="center"
         android:background="#fffa6464"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/NextImageB" />
 
     <ListView
         android:layout_width="wrap_content"
