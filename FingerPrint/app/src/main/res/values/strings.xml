@@ -7,8 +7,8 @@
     <string name="title_activity_shaw_month2">View Month</string>
 
 <!--Firest view-->
-    <string name="CheckInTime"> Check in Time:</string>
-    <string name="CheckOutTime">ShawMonth2</string>
+    <string name="CheckInTime" >Check In :</string>
+    <string name="CheckOutTime">Check Out:</string>
 
     <!--Second view-->
     <string name="DateTxtView">Date</string>

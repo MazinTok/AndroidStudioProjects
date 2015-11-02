@@ -25,6 +25,7 @@ public class ShawMonth2Activity extends ActionBarActivity {
     ImageButton PrevButton;
     ImageButton NextButton;
     int AddNumber;
+    int Addyears;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class ShawMonth2Activity extends ActionBarActivity {
         MonthTxtView = (TextView) findViewById(R.id.textView4);
         NewsResList = new ArrayList<FPlogsResult>();
         AddNumber = 0;
-
+        Addyears = 0;
         initializeView(AddNumber);
 
         PrevButton = (ImageButton) findViewById(R.id.PrevImageB);
@@ -59,31 +60,42 @@ public class ShawMonth2Activity extends ActionBarActivity {
         });
 
     }
+    public void PrepareDate()
+    {
 
+    }
     public void initializeView(int addNumber) {
         db = new DatabaseHandler(this);
         String log3 = "";
         Calendar calendar  = Calendar.getInstance();
-        int month = calendar.get(Calendar.MONTH)+1 + addNumber;
+       // int month = calendar.get(Calendar.MONTH)+1 + addNumber;
+        NewsResList = new ArrayList<FPlogsResult>();
 
 
+        calendar.add(Calendar.MONTH, addNumber);
+        int month = calendar.get(Calendar.MONTH);
+        month++;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int year = calendar.get(Calendar.YEAR);
 
-        if (month == 0)
+     /*   if (month == 0)
         {
             month = 12;
+
         }
-        else if (month/12 > 1)
+
+         if (month > 12)
         {
-            year++;
+            Addyears++;
 
-        }else if(month/12 < 0) {
-            year--;
+        }else if(month < 0) {
+             Addyears--;
+             month = month* -1;
         }
 
+        if ( month != 12)
         month = month % 12;
-
+*/
         // String monthstr = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
         MonthTxtView.setText(getMonthName(month) + "/" + String.valueOf(year));
 

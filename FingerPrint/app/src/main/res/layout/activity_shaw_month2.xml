@@ -14,7 +14,8 @@
         android:layout_marginRight="32dp"
         android:layout_marginEnd="32dp"
 
-        android:background="@drawable/previce_btn" />
+        android:background="@drawable/previce_btn"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,7 +26,7 @@
         android:layout_alignParentBottom="false"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="3dp" />
+        android:layout_marginTop="5dp" />
 
     <ImageButton
         android:layout_width="25dp"
@@ -36,7 +37,8 @@
         android:layout_marginEnd="32dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="@drawable/next_btn" />
+        android:background="@drawable/next_btn"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="85dp"
@@ -64,8 +66,8 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:background="#ff5efaa1"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/textView4" />
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignTop="@+id/textView3" />
 
     <TextView
         android:layout_width="75dp"

@@ -142,22 +142,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
                         KEY_Day,KEY_Month,KEY_Year, KEY_Time, KEY_Type }, KEY_Month + "=? AND "+ KEY_Day + "=? AND " +KEY_Type +"=?",
                 new String[] { month,day,type }, null, null, null, null);
-        if (cursor != null)
-            cursor.moveToFirst();
 
-        if (cursor.moveToFirst()) {
-            do {
-                FPlogs FPlogs = new FPlogs();
-                FPlogs.setId(Integer.parseInt(cursor.getString(0)));
-                FPlogs.setDay(cursor.getString(1));
-                FPlogs.setMonth(cursor.getString(2));
-                FPlogs.setYear(cursor.getString(3));
-                FPlogs.setTime(cursor.getString(4));
-                FPlogs.setType(Integer.parseInt(cursor.getString(5)));
-                // Adding contact to list
-                contactList.add(FPlogs);
-            } while (cursor.moveToNext());
-        }
+       try {
+           if (cursor != null)
+               cursor.moveToFirst();
+
+
+           if (cursor.moveToFirst()) {
+               do {
+                   FPlogs FPlogs = new FPlogs();
+                   FPlogs.setId(Integer.parseInt(cursor.getString(0)));
+                   FPlogs.setDay(cursor.getString(1));
+                   FPlogs.setMonth(cursor.getString(2));
+                   FPlogs.setYear(cursor.getString(3));
+                   FPlogs.setTime(cursor.getString(4));
+                   FPlogs.setType(Integer.parseInt(cursor.getString(5)));
+                   // Adding contact to list
+                   contactList.add(FPlogs);
+               } while (cursor.moveToNext());
+           }
+       }finally {
+           cursor.close();
+       }
+
         // FPlogs contact = new FPlogs(Integer.parseInt(cursor.getString(0)),
         //       cursor.getString(1), cursor.getString(2),Integer.parseInt(cursor.getString(3)));
         // return contact
