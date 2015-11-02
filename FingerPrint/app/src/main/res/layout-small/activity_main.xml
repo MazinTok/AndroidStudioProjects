@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"  tools:context=".MainActivity">
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/txCurrentTime"
+            android:layout_gravity="center"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/digitalClock"
+            android:layout_alignRight="@+id/analogClock"
+            android:layout_alignEnd="@+id/analogClock"
+            android:layout_alignLeft="@+id/analogClock"
+            android:layout_alignStart="@+id/analogClock"
+            android:gravity="center" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/txCurrentTime"
+        android:layout_above="@+id/btnCheckIn"
+        android:background="@drawable/rectangel">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:id="@+id/tvcheckin"
+            android:textSize="30sp"
+                android:background="#ff5efaa1"
+
+
+                android:elevation="5dp"
+            android:textAlignment="center"
+                android:gravity="center"
+
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_margin="5dp"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:id="@+id/tvCheckOut"
+                android:layout_below="@+id/tvcheckin"
+                android:textSize="30sp"
+                android:background="#fffa6464"
+                android:elevation="5dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+    </RelativeLayout>
+
+    <Button
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:id="@+id/btnCheckIn"
+                android:layout_weight="1"
+                android:background="@drawable/fingerprint_in"
+                android:elevation="5dp"
+                android:layout_above="@+id/btnViewMonth"
+                android:layout_toLeftOf="@+id/txCurrentTime"
+                android:layout_toStartOf="@+id/txCurrentTime" />
+
+            <Button
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:id="@+id/btnCheckOut"
+                android:layout_weight="1"
+                android:background="@drawable/fingerprint_out"
+                android:elevation="5dp"
+                android:layout_above="@+id/btnViewMonth"
+                android:layout_toRightOf="@+id/txCurrentTime"
+                android:layout_toEndOf="@+id/txCurrentTime" />
+
+    <Button
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/btnViewMonth"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/view_month"
+        android:elevation="5dp"/>
+
+    <AnalogClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/analogClock"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
+    <DigitalClock
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_below="@+id/analogClock"
+        android:id="@+id/digitalClock" />
+
+</RelativeLayout>
