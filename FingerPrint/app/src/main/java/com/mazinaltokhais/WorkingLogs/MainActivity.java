@@ -37,10 +37,12 @@ int year;
         myThread.start();
 
         final TextView _tvcheckin= (TextView)findViewById(R.id.tvcheckin);
-        final TextView _tvOvertime= (TextView)findViewById(R.id.TvOverTime);
-        final TextView _TvlateTxt= (TextView)findViewById(R.id.TvlateTot);
+        final TextView _TvlateTot= (TextView)findViewById(R.id.TvlateTot);
         final TextView _TvlateVal= (TextView)findViewById(R.id.TvlateVal);
+
         final TextView _tvCheckOut= (TextView)findViewById(R.id.tvCheckOut);
+        final TextView _tvOvertime= (TextView)findViewById(R.id.TvOverTime);
+        final TextView _tvOverTimeTot= (TextView)findViewById(R.id.tvOverTimeTot);
 
 
         Button _btnCheckIn = (Button) findViewById(R.id.btnCheckIn);
@@ -48,10 +50,10 @@ int year;
         Button _btnViewMonth = (Button) findViewById(R.id.btnViewMonth);
         _tvcheckin.setVisibility(View.GONE);
         _tvOvertime.setVisibility(View.GONE);
-        _TvlateTxt.setVisibility(View.GONE);
+        _TvlateTot.setVisibility(View.GONE);
         _TvlateVal.setVisibility(View.GONE);
         _tvCheckOut.setVisibility(View.GONE);
-
+        _tvOverTimeTot.setVisibility(View.GONE);
         setDate();
         List<FPlogs> CheckinLogsByDay = (List<FPlogs>) db.getFPlogsByDateAndtype(String.valueOf(day), String.valueOf(month), "0");
 
@@ -67,9 +69,11 @@ int year;
             ////////////_TvChckinValue.setText(Val);
 
             _tvcheckin.setVisibility(View.VISIBLE);
-            _tvOvertime.setVisibility(View.VISIBLE);
-            _TvlateTxt.setVisibility(View.VISIBLE);
+
+            _TvlateTot.setVisibility(View.VISIBLE);
             _TvlateVal.setVisibility(View.VISIBLE);
+            _tvOvertime.setVisibility(View.VISIBLE);
+           _tvOverTimeTot.setVisibility(View.VISIBLE);
 
         }
         if (CheckOutLogsByDay.size() != 0) {

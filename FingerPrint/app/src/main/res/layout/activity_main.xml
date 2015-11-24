@@ -166,9 +166,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Medium Text"
+                        android:text="@string/total"
                         android:background="@drawable/rectangel"
-                        android:id="@+id/tvLateTot"
+                        android:id="@+id/tvOverTimeTot"
                         android:layout_weight="1"
                         android:textSize="15sp"
 
