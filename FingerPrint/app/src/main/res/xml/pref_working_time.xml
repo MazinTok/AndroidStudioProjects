@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.mazinaltokhais.WorkingLogs.TimePreference
+        android:key="working_start1"
+        android:title="@string/pref_title_working_start"/>
+
+    <EditTextPreference
+        android:key="working_hours"
+        android:title="@string/pref_title_working_hours"
+        android:defaultValue="@string/pref_default_working_hours"
+        android:selectAllOnFocus="true"
+        android:inputType="numberDecimal"
+
+        android:maxLines="1" />
+
+
+
+</PreferenceScreen>

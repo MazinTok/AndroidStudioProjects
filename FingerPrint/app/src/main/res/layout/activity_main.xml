@@ -19,49 +19,172 @@
             android:layout_alignStart="@+id/analogClock"
             android:gravity="center" />
 
-    <RelativeLayout
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_below="@+id/txCurrentTime"
         android:layout_above="@+id/btnCheckIn"
         android:background="@drawable/rectangel">
-        <TextView
+
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangel"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/tvcheckin"
-            android:textSize="30sp"
-                android:background="#ff5efaa1"
+                android:layout_height="match_parent"
+                 android:layout_span="2">
 
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Medium Text"
+                        android:id="@+id/tvcheckin"
 
-                android:elevation="5dp"
-            android:textAlignment="center"
-                android:gravity="center"
+                    android:elevation="5dp"
+                    android:textAlignment="center"
+                        android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="5dp"
 
-            android:layout_gravity="center"
-            android:layout_centerInParent="true"
-            android:layout_margin="5dp"
-            android:layout_alignParentTop="true" />
+                    android:drawableLeft="@drawable/arrow487_in"
+                    android:drawablePadding="10dp"
+                    android:background="@drawable/rectangel"
+                    android:textSize="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
+                    />
 
-        <TextView
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/late"
+                        android:id="@+id/TvlateVal"
+                        android:textSize="15sp"
+                        android:background="@drawable/rectangel"
+                        android:elevation="5dp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+
+                        android:layout_margin="5dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/total"
+                        android:id="@+id/TvlateTot"
+                        android:textSize="15sp"
+                        android:background="@drawable/rectangel"
+                        android:elevation="5dp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="5dp"
+                        android:layout_alignParentTop="false"
+                        android:layout_below="@+id/TvOverTime"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangel"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/tvCheckOut"
-                android:layout_below="@+id/tvcheckin"
-                android:textSize="30sp"
-                android:background="#fffa6464"
-                android:elevation="5dp"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:layout_centerInParent="true"
+                android:layout_height="match_parent">
 
-            android:layout_gravity="center"
-            android:layout_margin="5dp" />
-    </RelativeLayout>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Medium Text"
+                        android:id="@+id/tvCheckOut"
+
+                        android:textSize="20dp"
+                    android:elevation="5dp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+
+                    android:background="@drawable/rectangel"
+
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:drawableLeft="@drawable/arrow487_out"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
+                    android:drawablePadding="10dp"
+                    />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/overTime"
+                        android:id="@+id/TvOverTime"
+                        android:textSize="15sp"
+
+                        android:elevation="5dp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/tvcheckin"
+                        android:background="@drawable/rectangel"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Medium Text"
+                        android:background="@drawable/rectangel"
+                        android:id="@+id/tvLateTot"
+                        android:layout_weight="1"
+                        android:textSize="15sp"
+
+                        android:elevation="5dp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="5dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
 
     <Button
                 android:layout_width="75dp"
@@ -74,7 +197,7 @@
                 android:layout_toLeftOf="@+id/txCurrentTime"
                 android:layout_toStartOf="@+id/txCurrentTime" />
 
-            <Button
+    <Button
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:id="@+id/btnCheckOut"

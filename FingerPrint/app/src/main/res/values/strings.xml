@@ -10,10 +10,19 @@
     <string name="CheckInTime" >Check In :</string>
     <string name="CheckOutTime">Check Out:</string>
 
+    <string name="late">Late:</string>
+    <string name="overTime">Over Time:</string>
+    <string name="total">Total:</string>
+
     <!--Second view-->
     <string name="DateTxtView">Date</string>
     <string name="TimeInTxtView">Time In</string>
     <string name="TimeOutTxtView">Time Out</string>
+
+
+    <!--Setting view-->
+    <string name="Set" >Set</string>
+    <string name="cancel">cancel</string>
 
 
 </resources>

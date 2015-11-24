@@ -37,6 +37,9 @@ int year;
         myThread.start();
 
         final TextView _tvcheckin= (TextView)findViewById(R.id.tvcheckin);
+        final TextView _tvOvertime= (TextView)findViewById(R.id.TvOverTime);
+        final TextView _TvlateTxt= (TextView)findViewById(R.id.TvlateTot);
+        final TextView _TvlateVal= (TextView)findViewById(R.id.TvlateVal);
         final TextView _tvCheckOut= (TextView)findViewById(R.id.tvCheckOut);
 
 
@@ -44,6 +47,9 @@ int year;
         Button _btnCheckOut = (Button) findViewById(R.id.btnCheckOut);
         Button _btnViewMonth = (Button) findViewById(R.id.btnViewMonth);
         _tvcheckin.setVisibility(View.GONE);
+        _tvOvertime.setVisibility(View.GONE);
+        _TvlateTxt.setVisibility(View.GONE);
+        _TvlateVal.setVisibility(View.GONE);
         _tvCheckOut.setVisibility(View.GONE);
 
         setDate();
@@ -55,16 +61,21 @@ int year;
         if (CheckinLogsByDay.size() != 0) {
             int i = CheckinLogsByDay.size();
             FPlogs cn  = CheckinLogsByDay.get(i - 1);
-            String log = getString(R.string.CheckInTime)+ cn.getTime() ;
-            _tvcheckin.setText(log);
-            _tvcheckin.setVisibility(View.VISIBLE);
+            String log = getString(R.string.CheckInTime);
+            String Val =cn.getTime();
+            _tvcheckin.setText(Val);
+            ////////////_TvChckinValue.setText(Val);
 
+            _tvcheckin.setVisibility(View.VISIBLE);
+            _tvOvertime.setVisibility(View.VISIBLE);
+            _TvlateTxt.setVisibility(View.VISIBLE);
+            _TvlateVal.setVisibility(View.VISIBLE);
 
         }
         if (CheckOutLogsByDay.size() != 0) {
             int i = CheckOutLogsByDay.size();
             FPlogs cn  = CheckOutLogsByDay.get(i - 1);
-            String log = getString(R.string.CheckOutTime)+ cn.getTime() ;
+            String log =  cn.getTime() ;
             _tvCheckOut.setText(log);
 
             _tvCheckOut.setVisibility(View.VISIBLE);
@@ -81,7 +92,7 @@ int year;
         _btnCheckIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                _tvcheckin.setText(getString(R.string.CheckInTime) + ShowTime(day, month, year));
+                _tvcheckin.setText( ShowTime(day, month, year));
                 // Inserting Contacts
 
                 db.addFPLogs(new FPlogs(String.valueOf(day),String.valueOf( month),String.valueOf( year), ShowTime(day, month, year), 0));
@@ -93,7 +104,7 @@ int year;
         _btnCheckOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               _tvCheckOut.setText(getString(R.string.CheckOutTime)+ShowTime(day, month, year));
+               _tvCheckOut.setText(ShowTime(day, month, year));
                 db.addFPLogs(new FPlogs(String.valueOf(day),String.valueOf( month),String.valueOf(year), ShowTime(day, month, year), 1));
 
                 _tvCheckOut.setVisibility(View.VISIBLE);
@@ -187,6 +198,8 @@ int year;
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent i = new Intent(this, SettingsActivity.class);
+            startActivityForResult(i, 1);
             return true;
         }
 

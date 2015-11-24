@@ -15,5 +15,7 @@
     <string name="TimeInTxtView">دخول</string>
     <string name="TimeOutTxtView">خروج</string>
 
-
+    <!--Setting view-->
+    <string name="Set" >ضبط</string>
+    <string name="cancel">إلغاء</string>
 </resources>
