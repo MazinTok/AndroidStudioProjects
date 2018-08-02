@@ -14,6 +14,12 @@
     <string name="overTime">Over Time:</string>
     <string name="total">Total:</string>
 
+
+
+    <string name="late_val">0</string>
+    <string name="overTime_val">0</string>
+    <string name="total_val">0</string>
+
     <!--Second view-->
     <string name="DateTxtView">Date</string>
     <string name="TimeInTxtView">Time In</string>

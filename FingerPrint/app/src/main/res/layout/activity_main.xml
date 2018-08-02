@@ -20,28 +20,33 @@
             android:gravity="center" />
 
     <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
+
+        android:background="@drawable/rectangel"
+        android:layout_margin="5dp"
         android:layout_below="@+id/txCurrentTime"
-        android:layout_above="@+id/btnCheckIn"
-        android:background="@drawable/rectangel">
+        android:layout_above="@+id/btnCheckIn">
 
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/rectangel"
-            android:layout_margin="5dp">
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                 android:layout_span="2">
+                >
 
                 <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Medium Text"
@@ -65,7 +70,11 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/divider"
+                    android:layout_gravity="center"
+                    android:showDividers="middle"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -74,11 +83,6 @@
                         android:text="@string/late"
                         android:id="@+id/TvlateVal"
                         android:textSize="15sp"
-                        android:background="@drawable/rectangel"
-                        android:elevation="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:layout_gravity="center"
 
                         android:layout_margin="5dp"
                         android:layout_weight="1" />
@@ -90,15 +94,8 @@
                         android:text="@string/total"
                         android:id="@+id/TvlateTot"
                         android:textSize="15sp"
-                        android:background="@drawable/rectangel"
-                        android:elevation="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:layout_centerInParent="true"
                         android:layout_margin="5dp"
-                        android:layout_alignParentTop="false"
-                        android:layout_below="@+id/TvOverTime"
+
                         android:layout_weight="1" />
                 </LinearLayout>
 
@@ -107,18 +104,23 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/rectangel"
-            android:layout_margin="5dp">
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                >
 
                 <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Medium Text"
@@ -141,8 +143,11 @@
 
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/divider"
+                    android:showDividers="middle"
+                    android:layout_gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -152,31 +157,18 @@
                         android:id="@+id/TvOverTime"
                         android:textSize="15sp"
 
-                        android:elevation="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:layout_centerInParent="true"
                         android:layout_margin="5dp"
-                        android:layout_below="@+id/tvcheckin"
-                        android:background="@drawable/rectangel"
-                        android:layout_weight="1" />
+                        android:layout_weight=".5" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/total"
-                        android:background="@drawable/rectangel"
                         android:id="@+id/tvOverTimeTot"
-                        android:layout_weight="1"
+                        android:layout_weight=".5"
                         android:textSize="15sp"
 
-                        android:elevation="5dp"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:layout_centerInParent="true"
                         android:layout_margin="5dp"
                         />
                 </LinearLayout>

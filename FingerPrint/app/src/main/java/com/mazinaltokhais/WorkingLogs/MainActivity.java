@@ -1,14 +1,19 @@
 package com.mazinaltokhais.WorkingLogs;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -45,19 +50,32 @@ int year;
         final TextView _tvOverTimeTot= (TextView)findViewById(R.id.tvOverTimeTot);
 
 
+
         Button _btnCheckIn = (Button) findViewById(R.id.btnCheckIn);
         Button _btnCheckOut = (Button) findViewById(R.id.btnCheckOut);
         Button _btnViewMonth = (Button) findViewById(R.id.btnViewMonth);
-        _tvcheckin.setVisibility(View.GONE);
-        _tvOvertime.setVisibility(View.GONE);
-        _TvlateTot.setVisibility(View.GONE);
-        _TvlateVal.setVisibility(View.GONE);
-        _tvCheckOut.setVisibility(View.GONE);
-        _tvOverTimeTot.setVisibility(View.GONE);
-        setDate();
-        List<FPlogs> CheckinLogsByDay = (List<FPlogs>) db.getFPlogsByDateAndtype(String.valueOf(day), String.valueOf(month), "0");
+//        _tvcheckin.setVisibility(View.GONE);
+//        _tvOvertime.setVisibility(View.GONE);
+//        _TvlateTot.setVisibility(View.GONE);
+//        _TvlateVal.setVisibility(View.GONE);
+//        _tvCheckOut.setVisibility(View.GONE);
+//        _tvOverTimeTot.setVisibility(View.GONE);
 
-        List<FPlogs> CheckOutLogsByDay = (List<FPlogs>) db.getFPlogsByDateAndtype(String.valueOf(day),String.valueOf(month), "1");
+
+          _tvOvertime.setText(getString(R.string.overTime)+ " 0 ");
+          _TvlateTot.setText(getString(R.string.late)+ " 0 ");
+        _TvlateVal.setText(getString(R.string.late_val) + " 0 ");
+//        _tvCheckOut.setVisibility(View.GONE);
+        _tvOverTimeTot.setText(getString(R.string.overTime_val) + " 0 ");
+
+
+
+        setDate();
+        List<FPlogs> CheckinLogsByDay = (List<FPlogs>) db.getFPlogsByDateAndtype(String.valueOf(day),
+                String.valueOf(month), "0");
+
+        List<FPlogs> CheckOutLogsByDay = (List<FPlogs>) db.getFPlogsByDateAndtype(String.valueOf(day),
+                String.valueOf(month), "1");
 
 
         if (CheckinLogsByDay.size() != 0) {
@@ -68,12 +86,14 @@ int year;
             _tvcheckin.setText(Val);
             ////////////_TvChckinValue.setText(Val);
 
-            _tvcheckin.setVisibility(View.VISIBLE);
+//            _tvcheckin.setVisibility(View.VISIBLE);
+//
+//            _TvlateTot.setVisibility(View.VISIBLE);
+//            _TvlateVal.setVisibility(View.VISIBLE);
+//            _tvOvertime.setVisibility(View.VISIBLE);
+//           _tvOverTimeTot.setVisibility(View.VISIBLE);
 
-            _TvlateTot.setVisibility(View.VISIBLE);
-            _TvlateVal.setVisibility(View.VISIBLE);
-            _tvOvertime.setVisibility(View.VISIBLE);
-           _tvOverTimeTot.setVisibility(View.VISIBLE);
+            calLate(Val);
 
         }
         if (CheckOutLogsByDay.size() != 0) {
@@ -82,7 +102,7 @@ int year;
             String log =  cn.getTime() ;
             _tvCheckOut.setText(log);
 
-            _tvCheckOut.setVisibility(View.VISIBLE);
+//            _tvCheckOut.setVisibility(View.VISIBLE);
 
 
         }
@@ -100,7 +120,7 @@ int year;
                 // Inserting Contacts
 
                 db.addFPLogs(new FPlogs(String.valueOf(day),String.valueOf( month),String.valueOf( year), ShowTime(day, month, year), 0));
-                _tvcheckin.setVisibility(View.VISIBLE);
+//                _tvcheckin.setVisibility(View.VISIBLE);
             }
         });
 
@@ -111,7 +131,7 @@ int year;
                _tvCheckOut.setText(ShowTime(day, month, year));
                 db.addFPLogs(new FPlogs(String.valueOf(day),String.valueOf( month),String.valueOf(year), ShowTime(day, month, year), 1));
 
-                _tvCheckOut.setVisibility(View.VISIBLE);
+//                _tvCheckOut.setVisibility(View.VISIBLE);
 
             }
         });
@@ -126,6 +146,42 @@ int year;
             }
         });
 
+    }
+    public void calLate(String mtime )
+    {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        Long mStartWorking = prefs.getLong("working_start1", 0);
+
+        Date h = new Date(mStartWorking);
+
+
+
+        String hours = mtime.substring(0,mtime.indexOf(":"));
+        String minats = mtime.substring(mtime.indexOf(":")+1 ,mtime.indexOf(":")+3);
+
+        String pattern = "HH:mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        try {
+            Date date1 = sdf.parse(mtime);
+           // Date date2 = sdf.parse(h.toString());
+
+          int ho = Integer.valueOf( hours) -Integer.valueOf( h.getHours());
+            int min = Integer.valueOf( minats) -Integer.valueOf( h.getMinutes());
+
+            // Outputs -1 as date1 is before date2
+            System.out.println(date1.compareTo(h));
+            Log.d("Name: ",  Integer.toString(ho));
+            // Outputs 1 as date1 is after date1
+            System.out.println(h.compareTo(date1));
+            Log.d("Name: ", Integer.toString(min));
+
+            // date2 = sdf.parse("19:28");
+            // Outputs 0 as the dates are now equal
+            System.out.println(date1.compareTo(h));
+
+        } catch (ParseException e){
+            // Exception handling goes here
+        }
     }
 
     public String ShowTime(int h, int m,int s)
