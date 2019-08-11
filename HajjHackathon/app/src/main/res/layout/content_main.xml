@@ -21,27 +21,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BottleCount">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Hello World!"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
         <com.budiyev.android.codescanner.CodeScannerView
             android:id="@+id/scanner_view_main"
             android:layout_width="match_parent"
@@ -78,10 +57,10 @@
         android:layout_gravity="center"
         android:elevation="16dp"
         android:gravity="center_vertical|center_horizontal"
-        android:text="3939"
+        android:text="0"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/white"
-        android:textSize="50sp"
+        android:textColor="#05968f"
+        android:textSize="80sp"
         app:layout_anchor="@id/fab"
         app:layout_anchorGravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/fab"
@@ -94,29 +73,30 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="99dp"
-        android:layout_marginStart="145dp"
         android:layout_marginTop="25dp"
-        android:text="38.9"
+        android:gravity="right"
+        android:paddingRight="10dp"
+        android:text="0.0"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fab" />
+        app:layout_constraintLeft_toLeftOf="@+id/fab"
+        app:layout_constraintTop_toBottomOf="@+id/fab"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="0dp"
+        android:layout_width="180dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="98dp"
         android:text="SR"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="36sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/WalletText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/WalletText" />
+        app:layout_constraintLeft_toRightOf="@+id/WalletText" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
